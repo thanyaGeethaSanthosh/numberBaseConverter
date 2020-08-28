@@ -6,6 +6,18 @@ const convertFromDecimal = (num, base) => {
   return isNaN(num) ? '' : num.toString(base);
 };
 
+const createRangeReg = (base) => {
+  let extraDigits = String.fromCharCode(...Array(103).keys()).slice(97);
+  let maxNo = base - 1;
+  let regRange = `[0-${maxNo}]`;
+  if (base > 10) {
+    maxNo = 9;
+    extraDigits = extraDigits.slice(0, base - 10);
+    regRange = `[0-${maxNo}${extraDigits}${extraDigits.toUpperCase()}]`;
+  }
+  return regRange;
+};
+
 class BaseConverter extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +40,7 @@ class BaseConverter extends React.Component {
           key={ind}
           base={base}
           number={number}
+          pattern={createRangeReg(base)}
           onChange={this.onChange}
         />
       );

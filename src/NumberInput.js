@@ -1,12 +1,11 @@
 import React from 'react';
 
 const NumberInput = (props) => {
-  const { base, number, onChange } = props;
+  const { base, pattern, number, onChange } = props;
   return (
-    <div>
-      <label>{base}</label>
-      <br />
-      <input id={base} value={number} onChange={onChange} />
+    <div class='numberBlock'>
+      <label>Base {base}</label>
+      <input pattern={pattern} id={base} value={number} onChange={onChange} />
     </div>
   );
 };

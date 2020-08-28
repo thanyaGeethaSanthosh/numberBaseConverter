@@ -3,9 +3,11 @@ import BaseConverter from './BaseConverter';
 
 const App = () => {
   return (
-    <div className='App'>
-      <div>Number Base Converter</div>
-      <BaseConverter />
+    <div className='App base-converter'>
+      <div className='title'>Number Base Converter</div>
+      <div>
+        <BaseConverter />
+      </div>
     </div>
   );
 };
